@@ -1,10 +1,250 @@
-/* Global styles */
-* {
+/* ═══════════════════════════════════════════════
+   ROYAL INDIAN DESIGN SYSTEM & CSS VARIABLES
+   ═══════════════════════════════════════════════ */
+:root {
+  /* Global Themes */
+  --royal-indigo: #1E1F57;
+  --royal-indigo-deep: #13144A;
+  --royal-indigo-mid: #2B2D80;
+  --imperial-gold: #D4AF37;
+  --imperial-gold-lt: #E8C84A;
+  --imperial-gold-glow: rgba(212, 175, 55, 0.3);
+  --pearl-ivory: #FFFDF9;
+  --warm-ivory: #FFF8EE;
+
+  /* Mode Specific Styling */
+  --theme-primary: var(--royal-indigo);
+  --theme-secondary: var(--imperial-gold);
+  --theme-accent: var(--royal-indigo-mid);
+  --theme-bg: var(--pearl-ivory);
+  --theme-card-bg: #ffffff;
+  --theme-border: rgba(212, 175, 55, 0.25);
+  --theme-text: #1a1a3e;
+  --theme-shadow: 0 20px 48px rgba(30, 31, 87, 0.1);
+}
+
+/* Reset & Common Styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  font-family: 'Poppins', sans-serif;
+  background: var(--pearl-ivory);
+  color: #1a1a3e;
+  overflow-x: hidden;
+  transition: background 0.5s ease, color 0.5s ease;
+  line-height: 1.6;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+}
+
+/* Utility Classes */
+.hidden {
+  display: none !important;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.grid {
+  display: grid;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.transition-all {
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Gradient Text */
+.gradient-gold {
+  background: linear-gradient(135deg, var(--imperial-gold-lt), var(--imperial-gold), #b8860b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Buttons */
+.btn {
+  border: none;
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn-royal {
+  background: linear-gradient(135deg, var(--imperial-gold-lt) 0%, var(--imperial-gold) 50%, #c49b2e 100%);
+  color: var(--royal-indigo-deep);
+}
+
+.btn-royal:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.3);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--imperial-gold);
+  color: var(--imperial-gold);
+}
+
+.btn-outline:hover {
+  background: var(--imperial-gold);
+  color: var(--royal-indigo-deep);
+}
+
+/* Cards */
+.card {
+  background: var(--theme-card-bg);
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: var(--theme-shadow);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 32px 64px rgba(30, 31, 87, 0.15);
+}
+
+/* Inputs */
+.input {
+  padding: 12px 16px;
+  border: 2px solid var(--theme-border);
+  border-radius: 12px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--imperial-gold);
+  box-shadow: 0 0 0 3px var(--imperial-gold-glow);
+}
+
+/* Animations */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.anim-slide-up {
+  animation: slideInUp 0.6s ease-out;
+}
+
+.anim-fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  body {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    font-size: 0.85rem;
+  }
 }
